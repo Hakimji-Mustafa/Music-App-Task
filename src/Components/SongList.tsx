@@ -13,9 +13,8 @@ import {SONGS_API_URL} from '../Utils/Contants';
 import DisplaySongs from './DisplaySongs';
 
 const SongList = () => {
-  const [isRefreshing, setIsRefreshing] = useState(false);
-
-  const {songList, setSongList} = useContextHook();
+  const {songList, setSongList, isRefreshing, setIsRefreshing} =
+    useContextHook();
 
   useEffect(() => {
     getSongsList(SONGS_API_URL, setSongList);
