@@ -10,7 +10,11 @@ const StackNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Details" component={SongDetails} />
+        <Stack.Screen
+          name="Details"
+          component={SongDetails}
+          options={{headerShown: true}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,5 +1,6 @@
-export const getSongsList = async url => {
+export const getSongsList = async (url, setFunction, refresh) => {
   const response = await fetch(url);
   const formattedData = await response.json();
-  return formattedData;
+  setFunction(formattedData?.results);
+  refresh && refresh(false);
 };
