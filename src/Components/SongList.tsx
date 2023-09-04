@@ -1,4 +1,11 @@
-import {FlatList, RefreshControl, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  RefreshControl,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {getSongsList} from '../Utils/Api';
 import {useContextHook} from '../Providers/ContextProvider';
@@ -17,6 +24,15 @@ const SongList = () => {
   const handleRefresh = () => {
     getSongsList(SONGS_API_URL, setSongList, setIsRefreshing);
   };
+
+  if (songList.length === 0) {
+    console.log('If Condition Visited');
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ActivityIndicator animating={true} size={'large'} color={'blue'} />
+      </View>
+    );
+  }
 
   return (
     <View style={{flex: 1}}>
